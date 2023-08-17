@@ -29,6 +29,9 @@ public class EmployeeService {
     }
 
     public Employee remove(String firstName, String lastName) {
+        if (!employees.containsKey(createKey(firstName, lastName))) {
+            throw new EmployeeNotFoundException();
+        }
         return employees.remove(createKey(firstName, lastName));
     }
 
