@@ -38,4 +38,11 @@ public class DepartmentService {
         return employeeService.getAll().stream()
                 .collect(Collectors.groupingBy(Employee::getDepartment));
     }
+
+    public double getDepartmentSalary(int department){
+        return employeeService.getAll().stream()
+                .filter(employee -> employee.getDepartment() == department)
+                .mapToDouble(Employee::getSalary)
+                .sum();
+    }
 }
