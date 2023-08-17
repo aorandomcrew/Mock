@@ -4,7 +4,6 @@ import com.example.collections.exception.EmployeeNotFoundException;
 import com.example.collections.model.Employee;
 import org.springframework.stereotype.Service;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -45,6 +44,7 @@ public class DepartmentService {
                 .collect(Collectors.groupingBy(Employee::getDepartment));
     }
 
+    //сумма всех зарплат в отделе
     public double getDepartmentSalary(int department) {
         return employeeService.getAll().stream()
                 .filter(employee -> employee.getDepartment() == department)

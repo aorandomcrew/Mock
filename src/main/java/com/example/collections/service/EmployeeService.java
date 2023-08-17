@@ -43,8 +43,8 @@ public class EmployeeService {
         return employee;
     }
 
-    public List<Employee> getAll() {
-        return Collections.unmodifiableList(new ArrayList<>(employees.values()));
+    public Collection<Employee> getAll() {
+        return employees.values();
     }
 
     private static String createKey(String firstName, String lastName) {
@@ -60,6 +60,4 @@ public class EmployeeService {
         double end = 20000;
         return (double) Math.round((Math.random() * (end - start)) + start);
     }
-
-
 }
